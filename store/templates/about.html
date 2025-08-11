@@ -1,0 +1,73 @@
+
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}EarthBubs - Gentle Care for Growing Joy{% endblock %}
+  
+{% block content %}
+
+<style>
+  .logo-img {
+      max-width: 250px;
+      height: auto;
+    }
+    .about-section {
+      padding: 60px 20px;
+    }
+    .about-heading {
+      font-weight: bold;
+    }
+    .about-text {
+      font-size: 1.5rem;
+      line-height: 1.8;
+    }
+    .about-features {
+      margin-top: 30px;
+    }
+    .about-features li {
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+  </style>
+
+
+<!-- Breadcrumb -->
+<div class="container mt-4">
+  <nav>
+    <strong>Home</strong> › About
+  </nav>
+</div>
+
+<!-- About Section -->
+<div class="container about-section">
+  <div class="row align-items-start">
+    <!-- Logo -->
+    <div class="col-md-3 text-center mb-4 mb-md-0">
+      <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo-img">
+      <h4 class="mt-2">EarthBubs</h4>
+    </div>
+
+    <!-- About Content -->
+    <div class="col-md-9">
+      <h2 class="about-heading mb-4">About Us</h2>
+      <p class="about-text">
+        At <strong>EarthBubs</strong>, we believe that every baby deserves the safest, softest start in life. That’s why we’re dedicated to offering high quality, trusted baby products that combine comfort, care, and innovation all wrapped in love. Born from a parent's desire for gentle, safe, and natural baby essentials, our journey began with one goal: to make parenting a little easier, and a lot more joyful.
+        <br><br>
+        From soft diapers and skin-loving care to smart strollers and feeding must-haves, every product we offer is thoughtfully chosen and thoroughly tested for your baby’s well being. We’re more than just a store—we’re part of your parenting journey.
+      </p>
+
+      <h6 class="mt-4">What Makes Us Different:</h6>
+      <ul class="about-features list-unstyled">
+        <li>🌿 Natural, safe, and toxin-free ingredients</li>
+        <li>🛡️ Pediatrician & dermatologist approved</li>
+        <li>👶 Designed with real parents in mind</li>
+        <li>🌎 Eco-conscious and cruelty-free practices</li>
+        <li>❤️ 10,000+ happy families and growing!</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+ {% endblock %}

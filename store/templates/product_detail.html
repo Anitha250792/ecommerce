@@ -1,0 +1,66 @@
+{% load static %}
+<style>
+    /* Fade animation for main image */
+    #mainImage {
+        transition: opacity 0.4s ease-in-out;
+    }
+</style>
+
+<div class="container my-5">
+    <div class="row">
+        <!-- Left side: Thumbnails + Main Image -->
+        <div class="col-md-6 d-flex">
+            <!-- Thumbnails -->
+            <div class="me-3 d-flex flex-column gap-2">
+                {% for img in product.gallery_images.all %}
+                    <img src="{{ img.image.url }}" 
+                         class="img-thumbnail thumb-img" 
+                         style="width:80px; cursor:pointer;" 
+                         onclick="changeImage('{{ img.image.url }}')">
+                {% endfor %}
+            </div>
+
+            <!-- Main Image -->
+            <div class="flex-fill text-center">
+                <img id="mainImage" src="{{ product.image.url }}" 
+                     class="img-fluid border rounded" alt="{{ product.name }}">
+            </div>
+        </div>
+
+        <!-- Right side: product details -->
+        <div class="col-md-6">
+            <h2>{{ product.name }}</h2>
+            <p><strong>MRP:</strong> <del>₹{{ product.mrp }}</del></p>
+            <h4 class="text-danger">Sale Price ₹{{ product.price }}</h4>
+
+            <p>{{ product.description }}</p>
+
+            <div class="my-3">
+                <label>Quantity:</label>
+                <div class="input-group" style="width:150px;">
+                    <button class="btn btn-outline-secondary">-</button>
+                    <input type="text" class="form-control text-center" value="1">
+                    <button class="btn btn-outline-secondary">+</button>
+                </div>
+            </div>
+
+            <button class="btn btn-success btn-lg">Buy Now</button>
+
+            <div class="mt-4 border p-3">
+                <p>🚚 Free Delivery</p>
+                <p>🔄 Free 7 Days Return Delivery</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function changeImage(imageUrl) {
+    let mainImage = document.getElementById("mainImage");
+    mainImage.style.opacity = 0; // Start fade out
+    setTimeout(() => {
+        mainImage.src = imageUrl;
+        mainImage.style.opacity = 1; // Fade in
+    }, 400); // Matches CSS transition time
+}
+</script>

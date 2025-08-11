@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% block title %}Contact Us{% endblock %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+  .contact-left {
+    background-color: #4f9bb7;
+    color: white;
+    border-radius: 10px;
+    padding: 100px;
+    font-size: 18px;
+  }
+  .contact-left i {
+    margin-right: 10px;
+  }
+  .form-control:focus {
+    box-shadow: none;
+    border-color: #00cfff;
+  }
+  .form-check-input:checked {
+    background-color: #00cfff;
+    border-color: #00cfff;
+  }
+  .btn-custom {
+    background-color: #00b5de;
+    border: none;
+    padding: 10px 25px;
+    color: white;
+    border-radius: 5px;
+    transition: 0.3s;
+  }
+  .btn-custom:hover {
+    background-color: #0099bb;
+  }
+</style>
+
+<div class="container my-5">
+  <nav class="mb-4"><strong>Home</strong> › Contact Us</nav>
+  <div class="row g-4">
+    
+    <!-- Left Column -->
+    <div class="col-md-5">
+      <div class="contact-left h-100">
+        <h4>Contact Information</h4>
+        <p class="mb-4">Say something to start a live chat!</p>
+        <p><i class="bi bi-telephone-fill"></i> +91 1234567890</p>
+        <p><i class="bi bi-envelope-fill"></i> Earthbuts@gmail.com</p>
+        <p><i class="bi bi-geo-alt-fill"></i> No.5, 12th Main Road, Vijaya Nagar,<br>Velacheri, Chennai - 600 042.</p>
+      </div>
+    </div>
+
+    <!-- Right Column (Form) -->
+    <div class="col-md-7 p-5">
+      <form>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <input type="text" class="form-control border-0 border-bottom" placeholder="First Name" required>
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="form-control border-0 border-bottom" placeholder="Last Name" required>
+          </div>
+          <div class="col-md-6">
+            <input type="email" class="form-control border-0 border-bottom" placeholder="Email" required>
+          </div>
+          <div class="col-md-6">
+            <input type="tel" class="form-control border-0 border-bottom" placeholder="Phone Number">
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <label class="form-label">Select Subject?</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="subject" checked>
+            <label class="form-check-label">General Inquiry</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="subject">
+            <label class="form-check-label">Call Request</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="subject">
+            <label class="form-check-label">Complaint</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="subject">
+            <label class="form-check-label">Information</label>
+          </div>
+        </div>
+
+        <div class="mt-3">
+          <textarea class="form-control border-0 border-bottom" placeholder="Write your message.." rows="3"></textarea>
+        </div>
+
+        <div class="mt-4 text-center">
+          <button type="submit" class="btn btn-custom">Send Message</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

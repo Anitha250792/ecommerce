@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="mb-4 text-center" style="padding-top: 30px; margin: 20px;">{{ title }}</h1>
+    <select class="form-select w-auto" id="priceFilter" style="margin-bottom: 20px; margin-left: 20px; float: right;">
+      <option value="all">Filter</option>
+      <option value="100-500">Price (100–500)</option>
+      <option value="501-800">Price (501–800)</option>
+      <option value="801-1500">Price (801–1500)</option>
+      <option value="1501-2000">Price (1501–2000)</option>
+      <option value="2001-3000">Price (2001–3000)</option>
+      <option value="3001-5000">Price (3001–5000 )</option>
+      <option value="5001-10000">Price (5001–10000)</option>
+      <option value="10001-20000">Price (10001–20000)</option>
+    </select>
+    <div class="products-container">
+        {% for product in page_obj %}
+        <div class="product-card" class="col-md-4 mb-4">
+            <div class="new-label">NEW</div>
+            <div class="product-image">
+                {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                {% else %}
+                <img src="{% static 'img/placeholder.png' %}" alt="No image available">
+                {% endif %}
+            </div>
+            <div class="product-footer">
+                <div class="product-info">
+                    <span class="product-name">{{ product.name }}</span>
+                    <div class="rating">
+                        {% for i in "12345"|slice:":product.rating" %}
+                            ⭐
+                        {% endfor %}
+                    </div>
+                    <div class="price-info">
+                        {% if product.mrp %}
+                        <span class="mrp">MRP ₹{{ product.mrp }}</span>
+                        {% endif %}
+                        <span class="price">Price ₹{{ product.price }}</span>
+                    </div>
+                </div>
+{% if product.id %}
+    <a href="{% url 'add_to_cart' product.id %}" class="btn btn-primary">Buy</a>
+{% endif %}
+
+            </div>
+        </div>
+        {% empty %}
+        <p>No products found.</p>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    <nav aria-label="Page navigation example" class="mt-4">
+      <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+        {% else %}
+          <li class="page-item disabled">
+            <span class="page-link" aria-hidden="true">&laquo;</span>
+          </li>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+          {% if page_obj.number == num %}
+            <li class="page-item active" aria-current="page">
+              <span class="page-link">{{ num }}</span>
+            </li>
+          {% else %}
+            <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+          {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        {% else %}
+          <li class="page-item disabled">
+            <span class="page-link" aria-hidden="true">&raquo;</span>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+</div>
+{% endblock %}
+
+<script>
+document.querySelectorAll('.btn-add-to-cart').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const productId = this.dataset.product;
+        const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        const data = new FormData();
+        fetch("{% url 'add_to_cart' 0 %}".replace('/0/', '/' + productId + '/'), {
+            method: 'POST',
+            headers: {'X-Requested-With': 'XMLHttpRequest', 'X-CSRFToken': csrftoken},
+            body: data
+        }).then(r => r.json())
+          .then(resp => {
+            if (resp.success) {
+                // update cart count UI if you have one
+                console.log('added', resp);
+                location.reload(); // or update mini-cart indicator
+            }
+        });
+    });
+});
+</script>

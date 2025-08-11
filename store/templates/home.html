@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home - EarthBubs{% endblock %}
+
+{% block content %}
+<div class="hero-section text-left text-white">
+    <h1>Gentle Care for Growing Joy</h1>
+    <p style="text-align: left; text-shadow: 4px rgba(98, 44, 225, 0.201); ">Premium baby care products crafted with love, purity, and the softest materials – because your baby deserves the best.</p>
+    <img src="{% static 'images/baby1.png' %}" alt="Stuffed Toy" class="img-fluid" style="margin-left: 500px;">
+</div>
+
+<section class="featured">
+    <h1>Featured Categories</h1>
+    <p class="subtitle">Everything Your Baby Needs</p>
+
+    <div class="category-container">
+        {% for category in categories %}
+        <div class="category-card">
+            <div class="image-wrapper">
+                <img src="{{ category.image_url }}" alt="{{ category.name }}">
+                {% if category.overlay_title %}
+                <div class="overlay">
+                    <div class="overlay-title">{{ category.overlay_title }}</div>
+                    <div class="overlay-desc">{{ category.description }}</div>
+                    <div class="overlay-badge">{{ category.overlay_badge|linebreaksbr }}</div>
+                </div>
+                {% endif %}
+            </div>
+            <div class="category-footer">
+                <span>{{ category.name }}</span>
+                <a href="{{ category.link }}" class="icon-link">↗</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="trust-section">
+    <h2>Why Parents Trust Us</h2>
+    <p class="subtitle">Designed with Love. Backed by Science.</p>
+
+    <div class="trust-container">
+        {% for item in trust_items %}
+        <div class="trust-card">
+            <div class="trust-icon">
+                <img src="{{ item.icon }}" alt="{{ item.title }}">
+            </div>
+            <div class="trust-title">{{ item.title }}
+            <div class="trust-desc">{{ item.description }}</div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+<section class="best-sellers">
+    <h2>Best Sellers</h2>
+    <p class="subtitle">Our Most Loved Products</p>
+
+    <div class="products-container">
+        {% for product in best_sellers %}
+        <div class="product-card">
+            <div class="new-label">NEW</div>
+            <div class="product-image">
+                <img src="{{ product.image_url }}" alt="{{ product.name }}">
+            </div>
+            <div class="product-footer">
+                <div class="product-info">
+                    <span class="product-name">{{ product.name }}</span>
+                    <div class="rating">
+                        {% for i in "12345"|slice:":product.rating" %}
+                            ⭐
+                        {% endfor %}
+                    </div>
+                    <div class="price-info">
+                        <span class="mrp">MRP ₹{{ product.mrp }}</span>
+                        <span class="price">Price ₹{{ product.price }}</span>
+                    </div>
+                </div>
+                <a href="{{ product.link }}" class="buy-btn">Buy</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<h1 style="text-align: center; padding-top: 20px; font-weight: bold;"> Trending Products </h1>
+    <p style="text-align: center; font-weight: bold;"> Parents Favourite, and Baby Approved </p>
+{% for product in products %}
+    <section class="trending-products {% if product.reverse %}reverse-layout{% endif %}">
+    
+    <div class="trending-image">
+        <img src="{{ product.image_url }}" alt="{{ product.title }}">
+    </div>
+    <div class="trending-info">
+        <h1>{{ product.title }}</h1>
+        <p>{{ product.description }}</p>
+        <a href="{{ product.link }}" class="buy-now-btn">Buy Now ↗</a>
+    </div>
+</section>
+{% endfor %}
+<section class="testimonials">
+    <h2>Customer Testimonials</h2>
+    <p class="subtitle">Parent Favorites, Baby Approved</p>
+
+    <div class="testimonial-grid">
+        {% for t in testimonials_page %}
+        <div class="testimonial-card">
+            <img src="{{ t.image_url }}" alt="{{ t.name }}" class="testimonial-img">
+            <h4>{{ t.name }} – {{ t.location }}</h4>
+            <p>"{{ t.review }}"</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination Controls -->
+    <div class="pagination">
+        {% if testimonials_page.has_previous %}
+            <a href="?page={{ testimonials_page.previous_page_number }}"><<</a>
+        {% endif %}
+
+        <span>Page {{ testimonials_page.number }} of {{ testimonials_page.paginator.num_pages }}</span>
+
+        {% if testimonials_page.has_next %}
+            <a href="?page={{ testimonials_page.next_page_number }}">>></a>
+        {% endif %}
+    </div>
+</section>
+
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <p class="subtitle">We’re Here to Help – Every Step of the Way</p>
+
+    <div class="faq-container">
+        {% for f in faqs %}
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>{{ f.question }}</span>
+                <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+                <p>{{ f.answer }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+
+<script>
+document.querySelectorAll(".faq-question").forEach(button => {
+    button.addEventListener("click", () => {
+        const isActive = button.classList.contains("active");
+
+        // Close all
+        document.querySelectorAll(".faq-question").forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        // Toggle clicked
+        if (!isActive) {
+            button.classList.add("active");
+        }
+    });
+});
+</script>
+
+
+
+
+
+
+
+{% endblock %}
