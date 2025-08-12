@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart - Address</title>
+  <link rel="icon" type="image/png" href="images/fresh produce icon.png">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+ </head>
+<style>
+    .container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  margin-top: 150px;
+}
+
+h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.active {
+  color: green;
+}
+
+.highlight {
+  font-weight: bold;
+}
+
+.payment-box {
+  background: #e9f8ef;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.payment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.payment-header label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.logos img {
+  width: 40px;
+  margin-left: 10px;
+}
+
+.note {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #444;
+}
+
+form {
+  margin-top: 20px;
+}
+
+form label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+input {
+  padding: 12px;
+  width: 100%;
+  border: 1px solid #999;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+.cvv-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.summary-box {
+  background: #e9f8ef;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.summary-box p {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.summary-box hr {
+  margin: 10px 0;
+}
+
+.total {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+.secure {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+}
+</style>
+<body>
+
+  <!-- Header Section -->
+  <header>
+  <!-- Top Banner -->
+  <div class="top-banner">Fresh & Organic produce from our farmers to your kitchen</div>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <!-- Logo -->
+    <div class="logo">
+      
+    </div>
+
+    <!-- Toggle Button (Mobile) -->
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <!-- Nav Links + Search -->
+    <div class="nav-content">
+      <nav id="navMenu">
+        <ul>
+          <li><a href="index.html"><img src="images/fresh produce icon.png" alt="Icon">Home</a></li>
+          <li><a href="catagories.html"><img src="images/fresh produce icon.png" alt="Icon">Categories</a></li>
+          <li><a href="bestsales.html"><img src="images/fresh produce icon.png" alt="Icon">Best Sales</a></li>
+          <li><a href="blogs.html"><img src="images/fresh produce icon.png" alt="Icon">Blogs</a></li>
+        </ul>
+
+        <!-- Search Bar -->
+        <div class="search-bar-container">
+          <div class="search-bar">
+            <input type="text" placeholder="Search products...">
+            <button><img src="images/search icon.png" alt="Search"> Search</button>
+          </div>
+        </div>
+
+        <!-- Icon Buttons -->
+        <div class="navbar-icons">
+          <div class="cart-icon-container">
+       <a href="cart.html" class="cart-icon">
+  <img src="images/cart icon.png" alt="Cart">
+  <span id="cartCount" class="cart-count">0</span>
+</a>
+</div>
+
+          <button class="account-btn">My Account</button>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+    <div class="left">
+      <h2><span class="active">BAG</span> > <span class="active">ADDRESS</span> > <span class="highlight">PAYMENT</span></h2>
+      <div class="payment-box">
+        <div class="payment-header">
+          <label><input type="radio" checked /> Credit Card</label>
+          <div class="logos">
+            <img src="images/master card logo - payment.png" alt="Mastercard" />
+            <img src="images/visa logo - payment.png" alt="Visa" />
+          </div>
+        </div>
+        <p class="note">Save money transfer using bank account Visa, Mastero</p>
+       <form id="paymentForm" onsubmit="payNow(event)">
+  <label for="cardNumber">CREDIT CARD NUMBER</label>
+  <input type="text" id="cardNumber" name="cardNumber" placeholder="Enter your card number" required maxlength="16">
+
+  <div class="grid">
+    <div class="form-group">
+      <label for="cvv">
+        CVV CODE
+        <img src="images/cvv.png" alt="CVV Info" class="cvv-icon" />
+      </label>
+      <input type="password" id="cvv" name="cvv" placeholder="***" required maxlength="3">
+    </div>
+
+    <div class="form-group">
+      <label for="expiry">EXPIRY DATE</label>
+      <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required maxlength="5">
+    </div>
+  </div>
+
+  <label for="cardName">NAME ON CARD</label>
+  <input type="text" id="cardName" name="cardName" placeholder="Enter your name on the card" required>
+
+ 
+</form>
+
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="summary-box">
+        <p><strong>Subtotal</strong> <span id="subtotal">₹ 0</span></p>
+        <p><strong>Delivery Charges</strong> ₹ 0</p>
+        <p><strong>Discount</strong> - ₹ 50</p>
+        <hr>
+        <p class="total"><strong>TOTAL</strong> <span id="total">₹ 0</span></p>
+        <a href="success.html"><button class="btn" onclick="payNow()">PROCEED TO PAY</button></a>
+        <p class="secure"><span>🔒</span> 100% Secure Payments</p>
+      </div>
+    </div>
+  </div>
+
+<section class="get-in-touch">
+    <div class="touch-text">
+      <h3>Get in Touch with us</h3>
+      <p>+91 91010 90000</p>
+    </div>
+    <div class="touch-icons">
+      <div class="touch-icon">
+        <img src="images/free shipping icon.png" alt="Shipping"/>
+        <div>
+          <strong>Free Shipping</strong>
+          <p>For Orders Above 500</p>
+        </div>
+      </div>
+      <div class="touch-icon">
+        <img src="images/fresh produce icon.png" alt="Fresh Produce"/>
+        <div>
+          <strong>Fresh Produce</strong>
+          <p>Guaranteed Product Warranty</p>
+        </div>
+      </div>
+      <div class="touch-icon">
+        <img src="images/safety icon.png" alt="Safety"/>
+        <div>
+          <strong>100% Safety & Security</strong>
+          <p>Your Data is Highly Secured</p>
+        </div>
+      </div>
+    </div>
+  </section>
+ <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-box brand">
+        <div class="logo1"><a href="index.html">
+        <img src="images/logo.png" alt="logo"></a></div>
+        <p>
+          Fresh groceries, particularly fruits, vegetables, whole grains, and lean proteins, play a crucial role in nourishing our bodies and promoting overall well-being.
+        </p>
+      </div>
+
+      <div class="footer-box">
+        <h4>NAVIGATE</h4>
+        <ul>
+          <li><a href="private.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms & Conditions</a></li>
+          <li><a href="terms.html">How to Order</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-box">
+        <h4>G-STORE</h4>
+        <p>Reg: T21542GST548</p>
+        <p>TIN: 14578452884</p>
+        <p>Email: groceriesatdoorstep@gmail.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyrights 2022© Groceries At Doorstep Ltd</p>
+    </div>
+  </footer>
+  <!-- JavaScript for Search -->
+ <script>
+// Calculate subtotal from cart
+function calculateSubtotalFromCart() {
+  const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+  return cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+}
+
+const discount = 50;
+const delivery = 0;
+const subtotal = calculateSubtotalFromCart();
+const total = subtotal - discount + delivery;
+
+// Update DOM values
+document.getElementById('subtotal').textContent = `₹ ${subtotal}`;
+document.getElementById('total').textContent = `₹ ${total}`;
+
+// Payment validation
+function payNow(event) {
+  event.preventDefault(); // prevent actual form submit
+
+  const cardNumber = document.getElementById('cardNumber').value.trim();
+  const cvv = document.getElementById('cvv').value.trim();
+  const expiry = document.getElementById('expiry').value.trim();
+  const name = document.getElementById('cardName').value.trim();
+
+  const expiryRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+
+  if (!/^\d{16}$/.test(cardNumber)) {
+    alert("Card number must be exactly 16 digits number.");
+    return;
+  }
+
+  if (!/^\d{3}$/.test(cvv)) {
+    alert("CVV must be exactly 3 digits nymber.");
+    return;
+  }
+
+  if (!expiryRegex.test(expiry)) {
+    alert("Expiry date must be in MM/YY format.");
+    return;
+  }
+
+  if (name === "") {
+    alert("Please enter name on card.");
+    return;
+  }
+
+  
+}
+
+</script>
+
+</body>
+</html>
+

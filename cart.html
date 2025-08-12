@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Groceries at Doorstep - Cart</title>
+  <link rel="icon" type="image/png" href="images/fresh produce icon.png">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+ </head>
+<style>
+    .title {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  margin-top: 100px;
+}
+
+.steps {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.steps a{
+  text-decoration: none;
+  color: green;
+}
+
+.steps .active {
+  color: green;
+}
+
+.cart-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.cart-items {
+  background: #e7f7e7;
+  padding: 1rem;
+  border-radius: 1rem;
+  flex: 1 1 300px;
+  max-width: 500px;
+}
+
+.cart-item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.cart-item img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.cart-item-info {
+  flex-grow: 1;
+}
+
+.cart-item-info h4 {
+  margin: 0.2rem 0;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quantity button {
+  padding: 0.3rem 0.6rem;
+  font-size: 1rem;
+  background: green;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.summary {
+  background: #e7f7e7;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  min-width: 250px;
+  height: fit-content;
+}
+
+.summary p, .summary h3, .summary h2 {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+}
+
+.checkout {
+  margin-top: 1rem;
+  padding: 0.7rem 1.5rem;
+  width: 100%;
+  background: green;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.secure {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+.remove-btn {
+  background: red;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cart-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+</style>
+<body>
+
+  <!-- Header Section -->
+  <header>
+  <!-- Top Banner -->
+  <div class="top-banner">Fresh & Organic produce from our farmers to your kitchen</div>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <!-- Logo -->
+    <div class="logo">
+      
+    </div>
+
+    <!-- Toggle Button (Mobile) -->
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <!-- Nav Links + Search -->
+    <div class="nav-content">
+      <nav id="navMenu">
+        <ul>
+          <li><a href="index.html"><img src="images/fresh produce icon.png" alt="Icon">Home</a></li>
+          <li><a href="catagories.html"><img src="images/fresh produce icon.png" alt="Icon">Categories</a></li>
+          <li><a href="bestsales.html"><img src="images/fresh produce icon.png" alt="Icon">Best Sales</a></li>
+          <li><a href="blogs.html"><img src="images/fresh produce icon.png" alt="Icon">Blogs</a></li>
+        </ul>
+
+        <!-- Search Bar -->
+        <div class="search-bar-container">
+          <div class="search-bar">
+            <input type="text" placeholder="Search products...">
+            <button><img src="images/search icon.png" alt="Search"> Search</button>
+          </div>
+        </div>
+
+        <!-- Icon Buttons -->
+        <div class="navbar-icons">
+          <div class="cart-icon-container">
+       <a href="cart.html" class="cart-icon">
+  <img src="images/cart icon.png" alt="Cart">
+  <span id="cartCount" class="cart-count">0</span>
+</a>
+</div>
+
+          <button class="account-btn">My Account</button>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+
+ <h1 class="title">Cart</h1>
+  <div class="steps">
+    <span class="active">BAG</span> > <a href="address.html"><span>ADDRESS</span></a> > <a href="payment.html"><span>PAYMENT</span></a>
+  </div>
+
+  <div class="cart-container">
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="summary">
+      <h3>Subtotal <span id="subtotal">₹0</span></h3>
+      <p>Delivery Charges <span>₹0</span></p>
+      <p>Discount <span id="discount">- ₹0</span></p>
+      <hr/>
+      <h2>TOTAL <span id="total">₹0</span></h2>
+      <a href="address.html"><button class="checkout">CHECKOUT</button></a>
+      <p class="secure"><span>🔒</span> 100% Secure Payments</p>
+    </div>
+  </div>
+
+
+<section class="get-in-touch">
+    <div class="touch-text">
+      <h3>Get in Touch with us</h3>
+      <p>+91 91010 90000</p>
+    </div>
+    <div class="touch-icons">
+      <div class="touch-icon">
+        <img src="images/free shipping icon.png" alt="Shipping"/>
+        <div>
+          <strong>Free Shipping</strong>
+          <p>For Orders Above 500</p>
+        </div>
+      </div>
+      <div class="touch-icon">
+        <img src="images/fresh produce icon.png" alt="Fresh Produce"/>
+        <div>
+          <strong>Fresh Produce</strong>
+          <p>Guaranteed Product Warranty</p>
+        </div>
+      </div>
+      <div class="touch-icon">
+        <img src="images/safety icon.png" alt="Safety"/>
+        <div>
+          <strong>100% Safety & Security</strong>
+          <p>Your Data is Highly Secured</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-box brand">
+        <div class="logo1"><a href="index.html">
+        <img src="images/logo.png" alt="logo"></a></div>
+        <p>
+          Fresh groceries, particularly fruits, vegetables, whole grains, and lean proteins, play a crucial role in nourishing our bodies and promoting overall well-being.
+        </p>
+      </div>
+
+      <div class="footer-box">
+        <h4>NAVIGATE</h4>
+        <ul>
+          <li><a href="private.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms & Conditions</a></li>
+          <li><a href="terms.html">How to Order</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-box">
+        <h4>G-STORE</h4>
+        <p>Reg: T21542GST548</p>
+        <p>TIN: 14578452884</p>
+        <p>Email: groceriesatdoorstep@gmail.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyrights 2022© Groceries At Doorstep Ltd</p>
+    </div>
+  </footer>
+  <!-- JavaScript for Search -->
+ <script>
+  function toggleMenu() {
+    const nav = document.querySelector(".nav-content nav");
+    nav.classList.toggle("active");
+  }
+
+  const cartItemsContainer = document.getElementById('cartItems');
+  const subtotalSpan = document.getElementById('subtotal');
+  const discountSpan = document.getElementById('discount');
+  const totalSpan = document.getElementById('total');
+
+  // Initialize cart
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  // Update the cart display on the page
+  function updateCartDisplay() {
+    cartItemsContainer.innerHTML = '';
+    let subtotal = 0;
+
+    if (cart.length === 0) {
+      cartItemsContainer.innerHTML = '<p>No items in cart.</p>';
+      subtotalSpan.textContent = '₹0';
+      discountSpan.textContent = '- ₹0';
+      totalSpan.textContent = '₹0';
+      return;
+    }
+
+    cart.forEach((item, index) => {
+      subtotal += item.price * item.quantity;
+
+      const div = document.createElement('div');
+      div.className = 'cart-item';
+
+      div.innerHTML = `
+        <img src="${item.img}" alt="${item.name}">
+        <div class="cart-item-info">
+          <p>Vegetables</p>
+          <h4>${item.name.toUpperCase()}</h4>
+          <p>₹ ${item.price}</p>
+          <div class="quantity">
+            <button onclick="updateQty(${index}, -1)">-</button>
+            <span>${item.quantity}</span>
+            <button onclick="updateQty(${index}, 1)">+</button>
+            <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+          </div>
+        </div>
+      `;
+
+      cartItemsContainer.appendChild(div);
+    });
+
+    const discount = subtotal > 1000 ? 0.05 * subtotal : 0;
+    const total = subtotal - discount;
+
+    subtotalSpan.textContent = `₹${subtotal}`;
+    discountSpan.textContent = `- ₹${discount.toFixed(0)}`;
+    totalSpan.textContent = `₹${total.toFixed(0)}`;
+
+    updateCartCount(); // ✅ Update cart count here too
+  }
+
+  // Update quantity of an item
+  function updateQty(index, change) {
+    cart[index].quantity += change;
+    if (cart[index].quantity <= 0) {
+      cart.splice(index, 1);
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartDisplay();
+  }
+
+  // Remove an item from the cart
+  function removeItem(index) {
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartDisplay();
+  }
+
+  // Update the cart count badge on the cart icon
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const countSpan = document.getElementById('cartCount');
+    countSpan.textContent = totalItems;
+    countSpan.style.display = totalItems > 0 ? 'inline-block' : 'none';
+  }
+
+  // Run once on load
+  updateCartDisplay();
+  updateCartCount();
+</script>
+
+</body>
+</html>
+
