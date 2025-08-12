@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Groceries at Doorstep - Blogs</title>
+  <link rel="icon" type="image/png" href="images/fresh produce icon.png">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+ </head>
+  <style>
+    /* Center content on the entire page */
+    .blogs-body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #f9f9f9;
+      font-family: Arial, sans-serif;
+      margin-top: 150px;
+    }
+
+    .container {
+      text-align: center;
+      font-size: 25px;
+      max-width: 80%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      background-color: #fff;
+      
+    }
+
+    .container p {
+      margin: 10px 0;
+    }
+
+    .image img {
+      width: 100%;
+      max-width: 650px;
+      height: auto;
+      max-height: 350px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .highlight {
+      color: #f97316;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-weight: bold;
+      font-size: 30px;
+    }
+
+    ul {
+      list-style: decimal inside;
+      padding-left: 0;
+      margin: 10px 0 0 0;
+      font-size: 25px;
+      text-align: left;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 15px;
+      }
+
+      .highlight {
+        font-size: 1.4rem;
+      }
+
+      ul {
+        font-size: 1rem;
+      }
+    }
+  </style>
+<body>
+
+    <!-- Header Section -->
+<header>
+  <!-- Top Banner -->
+  <div class="top-banner">Fresh & Organic produce from our farmers to your kitchen</div>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <!-- Logo -->
+    <div class="logo">
+       <a href="index.html">
+      <img src="images/logo.png" alt="Logo"></a>
+    </div>
+
+    <!-- Toggle Button (Mobile) -->
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <!-- Nav Links + Search -->
+    <div class="nav-content">
+      <nav id="navMenu">
+        <ul>
+          <li><a href="index.html"><img src="images/fresh produce icon.png" alt="Icon">Home</a></li>
+          <li><a href="catagories.html"><img src="images/fresh produce icon.png" alt="Icon">Categories</a></li>
+          <li><a href="bestsales.html"><img src="images/fresh produce icon.png" alt="Icon">Best Sales</a></li>
+          <li><a href="blogs.html"><img src="images/fresh produce icon.png" alt="Icon">Blogs</a></li>
+        </ul>
+
+        <!-- Search Bar -->
+        <div class="search-bar-container">
+          <div class="search-bar">
+            <input type="text" placeholder="Search products...">
+            <button><img src="images/search icon.png" alt="Search"> Search</button>
+          </div>
+        </div>
+
+        <!-- Icon Buttons -->
+        <div class="navbar-icons">
+          <div class="cart-icon-container">
+       <a href="cart.html" class="cart-icon">
+  <img src="images/cart icon.png" alt="Cart">
+  <span id="cartCount" class="cart-count">0</span>
+</a>
+</div>
+
+          <button class="account-btn">My Account</button>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<section class="blogs-body">
+<section class="container">
+    <h2 class="highlight">Eco-Friendly Shopping Tips</h2><br>
+    <p>
+      Grocery items should be an essential component of every interior design. Greenery brightens up indoor spaces and is known to have mood-boosting qualities.
+    </p>
+    <p>
+      Indoor plants are popular because they are relatively easy to take care of, provide health benefits and can be used in a variety of indoor décor themes. Indoor plants are a great option for those who have little yard space for an outdoor garden or for those who live in climates with severely cold winters.
+    </p>
+    <p>
+      So, if you're caring for indoor plants for the first time, our ultimate guide will provide you with the necessary information to allow your green friends to thrive.
+    </p>
+    <p>
+      To provide you with expert insight, we asked our Senior Horticulturist at Ambius, Matt Kostelnick, to answer the most frequently asked questions about indoor plants.
+    </p><br>
+    <div class="image">
+      <img src="images/blog header image.png" alt="Vegetables" />      
+    </div><br>
+    <h2 class="highlight">Why shopping tip for groceries is important?</h2>
+  <p>
+    Indoor plants are plants that grow indoors. There are a variety of tropical plants, like palms, that thrive in indoor environments.
+  </p>
+
+  <h2 class="highlight">Essential grocery lists?</h2>
+  <p>
+    Most of the time, indoor plants are already in containers, so there is no need to plant them. There are typically only two reasons you need to plant an indoor plant.
+  </p>
+  <p>
+  <ul>
+    <li>If your plant is getting too big, then you will need to replant.</li>
+    <li>If you wanted to grow bulbs indoors, then you will need to plant the bulbs yourself.</li>
+  </ul>
+  </p>
+  </section>
+</section>
+
+<section class="get-in-touch">
+    <div class="touch-text">
+      <h3>Get in Touch with us</h3>
+      <p>+91 91010 90000</p>
+    </div>
+    <div class="touch-icons">
+      <div class="touch-icon">
+        <img src="images/free shipping icon.png" alt="Shipping"/>
+        <div>
+          <strong>Free Shipping</strong>
+          <p>For Orders Above 500</p>
+        </div>
+      </div>
+      <div class="touch-icon">
+        <img src="images/fresh produce icon.png" alt="Fresh Produce"/>
+        <div>
+          <strong>Fresh Produce</strong>
+          <p>Guaranteed Product Warranty</p>
+        </div>
+      </div>
+      <div class="touch-icon">
+        <img src="images/safety icon.png" alt="Safety"/>
+        <div>
+          <strong>100% Safety & Security</strong>
+          <p>Your Data is Highly Secured</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-box brand">
+        <div class="logo1"><a href="index.html">
+        <img src="images/logo.png" alt="logo"></a></div>
+        <p>
+          Fresh groceries, particularly fruits, vegetables, whole grains, and lean proteins, play a crucial role in nourishing our bodies and promoting overall well-being.
+        </p>
+      </div>
+
+      <div class="footer-box">
+        <h4>NAVIGATE</h4>
+        <ul>
+          <li><a href="private.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms & Conditions</a></li>
+          <li><a href="terms.html">How to Order</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-box">
+        <h4>G-STORE</h4>
+        <p>Reg: T21542GST548</p>
+        <p>TIN: 14578452884</p>
+        <p>Email: groceriesatdoorstep@gmail.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyrights 2022© Groceries At Doorstep Ltd</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+  const nav = document.querySelector(".nav-content nav");
+  nav.classList.toggle("active");
+}
+
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const countSpan = document.getElementById('cartCount');
+    if (countSpan) {
+      countSpan.textContent = totalItems;
+      countSpan.style.display = totalItems > 0 ? 'inline-block' : 'none';
+    }
+  }
+
+  // Call on page load
+  updateCartCount();
+
+  // ✅ Listen for updates from other tabs/windows/pages
+  window.addEventListener('storage', function (e) {
+    if (e.key === 'cart') {
+      updateCartCount();
+    }
+  });
+
+  // ✅ Listen for custom event to trigger update without page refresh
+  window.addEventListener('cartUpdated', updateCartCount);
+
+  </script>
+</body>
+</html>

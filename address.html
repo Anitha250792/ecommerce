@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart - Address</title>
+  <link rel="icon" type="image/png" href="images/fresh produce icon.png">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+ </head>
+<style>
+    .address{
+        background-color: #f7f8fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+    }
+    .container {
+  background: white;
+  padding: 30px;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin-top:150px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.steps {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.steps .active {
+  color: green;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input {
+  padding: 12px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 18px;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
+<body>
+
+  <!-- Header Section -->
+  <header>
+  <!-- Top Banner -->
+  <div class="top-banner">Fresh & Organic produce from our farmers to your kitchen</div>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <!-- Logo -->
+    <div class="logo">
+      
+    </div>
+
+    <!-- Toggle Button (Mobile) -->
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <!-- Nav Links + Search -->
+    <div class="nav-content">
+      <nav id="navMenu">
+        <ul>
+          <li><a href="index.html"><img src="images/fresh produce icon.png" alt="Icon">Home</a></li>
+          <li><a href="catagories.html"><img src="images/fresh produce icon.png" alt="Icon">Categories</a></li>
+          <li><a href="bestsales.html"><img src="images/fresh produce icon.png" alt="Icon">Best Sales</a></li>
+          <li><a href="blogs.html"><img src="images/fresh produce icon.png" alt="Icon">Blogs</a></li>
+        </ul>
+
+        <!-- Search Bar -->
+        <div class="search-bar-container">
+          <div class="search-bar">
+            <input type="text" placeholder="Search products...">
+            <button><img src="images/search icon.png" alt="Search"> Search</button>
+          </div>
+        </div>
+
+        <!-- Icon Buttons -->
+        <div class="navbar-icons">
+          <div class="cart-icon-container">
+       <a href="cart.html" class="cart-icon">
+  <img src="images/cart icon.png" alt="Cart">
+  <span id="cartCount" class="cart-count">0</span>
+</a>
+</div>
+
+          <button class="account-btn">My Account</button>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+<div class="address">
+ <div class="container">
+    <h1>Cart</h1>
+    <div class="steps">
+      <span class="active">BAG</span> &gt;
+      <span class="active">ADDRESS</span> &gt;
+      <span>PAYMENT</span>
+    </div>
+
+    <form id="addressForm">
+      <h2>Contact Details</h2>
+      <input type="text" placeholder="Enter your name" id="name" required />
+      <input type="tel" placeholder="Enter your mobile number" id="mobile" required pattern="[0-9]{10}"/>
+
+      <h2>Address</h2>
+      <input type="text" placeholder="Door no, Building no, Street name," id="address" required />
+      <div class="grid">
+        <input type="text" placeholder="City" id="city" required />
+        <input type="text" placeholder="State" id="state" required />
+      </div>
+
+      <button type="submit" class="btn">ADD ADDRESS</button>
+    </form>
+  </div>
+</div>
+<section class="get-in-touch">
+    <div class="touch-text">
+      <h3>Get in Touch with us</h3>
+      <p>+91 91010 90000</p>
+    </div>
+    <div class="touch-icons">
+      <div class="touch-icon">
+        <img src="images/free shipping icon.png" alt="Shipping"/>
+        <div>
+          <strong>Free Shipping</strong>
+          <p>For Orders Above 500</p>
+        </div>
+      </div>
+      <div class="touch-icon">
+        <img src="images/fresh produce icon.png" alt="Fresh Produce"/>
+        <div>
+          <strong>Fresh Produce</strong>
+          <p>Guaranteed Product Warranty</p>
+        </div>
+      </div>
+      <div class="touch-icon">
+        <img src="images/safety icon.png" alt="Safety"/>
+        <div>
+          <strong>100% Safety & Security</strong>
+          <p>Your Data is Highly Secured</p>
+        </div>
+      </div>
+    </div>
+  </section>
+ <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-box brand">
+        <div class="logo1"><a href="index.html">
+        <img src="images/logo.png" alt="logo"></a></div>
+        <p>
+          Fresh groceries, particularly fruits, vegetables, whole grains, and lean proteins, play a crucial role in nourishing our bodies and promoting overall well-being.
+        </p>
+      </div>
+
+      <div class="footer-box">
+        <h4>NAVIGATE</h4>
+        <ul>
+          <li><a href="private.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms & Conditions</a></li>
+          <li><a href="terms.html">How to Order</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-box">
+        <h4>G-STORE</h4>
+        <p>Reg: T21542GST548</p>
+        <p>TIN: 14578452884</p>
+        <p>Email: groceriesatdoorstep@gmail.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyrights 2022© Groceries At Doorstep Ltd</p>
+    </div>
+  </footer>
+  <!-- JavaScript for Search -->
+ <script>
+  document.getElementById("addressForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const mobile = document.getElementById("mobile").value.trim();
+  const address = document.getElementById("address").value.trim();
+  const city = document.getElementById("city").value.trim();
+  const state = document.getElementById("state").value.trim();
+
+  if (!name || !mobile || !address || !city || !state) {
+    alert("Please Enter 10 digit Mobile Number.");
+    return;
+  }
+
+  const addressDetails = {
+    name,
+    mobile,
+    address,
+    city,
+    state
+  };
+
+  localStorage.setItem("deliveryAddress", JSON.stringify(addressDetails));
+  alert("Address saved successfully!");
+  window.location.href = "payment.html"; // Redirect to next step
+});
+
+</script>
+
+</body>
+</html>
+

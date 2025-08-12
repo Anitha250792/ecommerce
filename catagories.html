@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Groceries at Doorstep - Catagories</title>
+  <link rel="icon" type="image/png" href="images/fresh produce icon.png">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+ </head>
+<style>
+ .grid-container {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns default */
+  justify-items: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 200px auto 50px auto;
+  padding: 0 20px;
+}
+
+.category-card {
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.category-card img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.category-card p {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.category-card:hover {
+  transform: scale(1.05);
+}
+
+/* Medium Screens (Tablets) */
+@media (max-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  }
+
+  .category-card img {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* Small Screens (Mobiles) */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  }
+
+  .category-card img {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+/* Extra Small Screens */
+@media (max-width: 480px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* 1 column */
+  }
+
+  .category-card img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+</style>
+<body>
+
+  <!-- Header Section -->
+ <header>
+  <!-- Top Banner -->
+  <div class="top-banner">Fresh & Organic produce from our farmers to your kitchen</div>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <!-- Logo -->
+    <div class="logo">
+       <a href="index.html">
+      <img src="images/logo.png" alt="Logo"></a>
+    </div>
+
+    <!-- Toggle Button (Mobile) -->
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <!-- Nav Links + Search -->
+    <div class="nav-content">
+      <nav id="navMenu">
+        <ul>
+          <li><a href="index.html"><img src="images/fresh produce icon.png" alt="Icon">Home</a></li>
+          <li><a href="catagories.html"><img src="images/fresh produce icon.png" alt="Icon">Categories</a></li>
+          <li><a href="bestsales.html"><img src="images/fresh produce icon.png" alt="Icon">Best Sales</a></li>
+          <li><a href="blogs.html"><img src="images/fresh produce icon.png" alt="Icon">Blogs</a></li>
+        </ul>
+
+        <!-- Search Bar -->
+        <div class="search-bar-container">
+          <div class="search-bar">
+            <input type="text" placeholder="Search products...">
+            <button><img src="images/search icon.png" alt="Search"> Search</button>
+          </div>
+        </div>
+
+        <!-- Icon Buttons -->
+        <div class="navbar-icons">
+          <div class="cart-icon-container">
+       <a href="cart.html" class="cart-icon">
+  <img src="images/cart icon.png" alt="Cart">
+  <span id="cartCount" class="cart-count">0</span>
+</a>
+</div>
+
+          <button class="account-btn">My Account</button>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<div class="grid-container">
+    <div class="category-card"><a href="fruits.html">
+      <img src="images/fruits cate.png" alt="Fruits" /></a>
+      <p>Fruits</p>
+    </div>
+    <div class="category-card"><a href="vegetables.html">
+      <img src="images/vege cate.png" alt="Vegetables" /></a>
+      <p>Vegetables</p>
+    </div>
+    <div class="category-card"><a href="diaryeggs.html">
+      <img src="images/dairy des 3.png" alt="Dairy & Eggs" /></a>
+      <p>Dairy & Eggs</p>
+    </div>
+    <div class="category-card"><a href="meatseafood.html">
+      <img src="images/meat & sea food cate.png" alt="Meat & Seafood" /></a>
+      <p>Meat & Seafood</p>
+    </div>
+    <div class="category-card"><a href="bakery.html">
+      <img src="images/bakery cate.png" alt="Bakery" /></a>
+      <p>Bakery</p>
+    </div>
+    <div class="category-card"><a href="pantry.html">
+      <img src="images/pantry des 2.png" alt="Pantry Staples" /></a>
+      <p>Pantry Staples</p>
+    </div>
+    <div class="category-card"><a href="snacks.html">
+      <img src="images/bakery cate 1.png" alt="Snacks & Beverage" /></a>
+      <p>Snacks & Beverage</p>
+    </div>
+    <div class="category-card"><a href="frozen.html">
+      <img src="images/cart image 4.png" alt="Frozen Food" /></a>
+      <p>Frozen Food</p>
+    </div>
+  </div>
+
+<section class="get-in-touch">
+    <div class="touch-text">
+      <h3>Get in Touch with us</h3>
+      <p>+91 91010 90000</p>
+    </div>
+    <div class="touch-icons">
+      <div class="touch-icon">
+        <img src="images/free shipping icon.png" alt="Shipping"/>
+        <div>
+          <strong>Free Shipping</strong>
+          <p>For Orders Above 500</p>
+        </div>
+      </div>
+      <div class="touch-icon">
+        <img src="images/fresh produce icon.png" alt="Fresh Produce"/>
+        <div>
+          <strong>Fresh Produce</strong>
+          <p>Guaranteed Product Warranty</p>
+        </div>
+      </div>
+      <div class="touch-icon">
+        <img src="images/safety icon.png" alt="Safety"/>
+        <div>
+          <strong>100% Safety & Security</strong>
+          <p>Your Data is Highly Secured</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-box brand">
+        <div class="logo1"><a href="index.html">
+        <img src="images/logo.png" alt="logo"></a></div>
+        <p>
+          Fresh groceries, particularly fruits, vegetables, whole grains, and lean proteins, play a crucial role in nourishing our bodies and promoting overall well-being.
+        </p>
+      </div>
+
+      <div class="footer-box">
+        <h4>NAVIGATE</h4>
+        <ul>
+          <li><a href="private.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms & Conditions</a></li>
+          <li><a href="terms.html">How to Order</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-box">
+        <h4>G-STORE</h4>
+        <p>Reg: T21542GST548</p>
+        <p>TIN: 14578452884</p>
+        <p>Email: groceriesatdoorstep@gmail.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Copyrights 2022© Groceries At Doorstep Ltd</p>
+    </div>
+  </footer>
+  
+  <script>
+    function toggleMenu() {
+  const nav = document.querySelector(".nav-content nav");
+  nav.classList.toggle("active");
+}
+
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const countSpan = document.getElementById('cartCount');
+    if (countSpan) {
+      countSpan.textContent = totalItems;
+      countSpan.style.display = totalItems > 0 ? 'inline-block' : 'none';
+    }
+  }
+
+  // Call on page load
+  updateCartCount();
+
+  // ✅ Listen for updates from other tabs/windows/pages
+  window.addEventListener('storage', function (e) {
+    if (e.key === 'cart') {
+      updateCartCount();
+    }
+  });
+
+  // ✅ Listen for custom event to trigger update without page refresh
+  window.addEventListener('cartUpdated', updateCartCount);
+  
+  </script>
+</body>
+</html>
+
